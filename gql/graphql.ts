@@ -133,7 +133,7 @@ export type _Service = {
 export type CountriesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type CountriesQuery = { __typename?: 'Query', countries: Array<{ __typename?: 'Country', name: string }> };
+export type CountriesQuery = { __typename?: 'Query', countries: Array<{ __typename?: 'Country', name: string, code: string, capital?: string | null }> };
 
 
-export const CountriesDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"Countries"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"countries"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}}]}}]}}]} as unknown as DocumentNode<CountriesQuery, CountriesQueryVariables>;
+export const CountriesDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"Countries"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"countries"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"code"}},{"kind":"Field","name":{"kind":"Name","value":"capital"}}]}}]}}]} as unknown as DocumentNode<CountriesQuery, CountriesQueryVariables>;
