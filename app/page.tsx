@@ -4,20 +4,20 @@ import styles from "./page.module.css"
 
 const inter = Inter({ subsets: ["latin"] })
 
-async function getApexPlayerData(playerName = "scarlettdaylight", platform = "PS4") {
+async function getGameList( platform = "pc") {
   const res = await fetch(
-    `https://api.mozambiquehe.re/bridge?auth=${process.env.APEX_STATUS_API_KEY}&player=${playerName}&platform=${platform}`,
+    `https://www.freetogame.com/api/games?platform=${platform}`,
   )
 
   if (!res.ok) {
-    throw Error("Failed to fetch apex data")
+    throw Error("Failed to fetch game list")
   }
 
   return res.json()
 }
 
 export default async function Home() {
-  const data = await getApexPlayerData()
+  const data = await getGameList()
 
   return (
     <main className={styles.main}>
