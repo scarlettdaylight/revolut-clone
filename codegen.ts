@@ -4,9 +4,9 @@ loadEnvConfig(process.cwd())
 
 const config: CodegenConfig = {
   schema: {
-    ["https://graphql.datocms.com/"]: {
+    ["https://countries.trevorblades.com/"]: {
       headers: {
-        authorization: process.env.DATOCMS_API_KEY ?? "",
+        authorization: "",
       },
     },
   },

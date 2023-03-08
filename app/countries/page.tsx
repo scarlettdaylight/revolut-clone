@@ -1,23 +1,30 @@
-import { AllShopsQueryDocument } from "@/gql/graphql"
-import { getDatoRequestClient } from "@/lib/datocms"
+import { graphql } from "@/gql/gql"
+import {CountriesDocument} from "@/gql/graphql";
+
+import { getGQLRequestClient } from "@/lib/gqlClient"
 import Image from "next/image"
 import { Inter } from "@next/font/google"
 import styles from "./page.module.css"
-import { graphql } from "@/gql"
 
 const inter = Inter({ subsets: ["latin"] })
 
-async function getCoffeeList() {
-  const client = getDatoRequestClient()
-  const result = await client.request(AllShopsQueryDocument)
+const getAllCountriesQueryDocument = graphql(/* GraphQL */ `
+  query Countries {
+    countries {
+      name
+    }
+  }
+`)
 
-  return result.allShops
+async function getCountriesList() {
+  const client = getGQLRequestClient()
+  const result = await client.request(CountriesDocument)
+
+  return result.countries
 }
 
 export default async function Home() {
-  const data = await getCoffeeList()
-
-  console.log(data)
+  const data = await getCountriesList()
 
   return (
     <main className={styles.main}>
