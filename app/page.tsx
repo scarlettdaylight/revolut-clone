@@ -6,11 +6,9 @@ const inter = Inter({ subsets: ["latin"] })
 
 async function getGameList(platform = "pc") {
   const res = await fetch(`https://www.freetogame.com/api/games?platform=${platform}`)
-
   if (!res.ok) {
     throw Error("Failed to fetch game list")
   }
-
   return res.json()
 }
 
